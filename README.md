@@ -17,3 +17,9 @@
 才能正常运行。
 
 话说，运行一个**普通的**Web项目应该不是问题。
+
+另外，这**不是**一个Node项目。
+
+之所以有package.json，是为了解决可能存在的ts版本错误导致的编译问题。
+
+来龙去脉请见[博客](https://blog.csdn.net/HermitSun/article/details/96478912)。
