@@ -1,0 +1,15 @@
+.color-green {
+    color: green;
+}
+
+.color-yellow {
+    color: yellow;
+}
+
+.color-red {
+    color: red;
+}
+
+form :focus:required:invalid {
+    border-color: #a94442;
+}
