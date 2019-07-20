@@ -1,11 +1,11 @@
-/// <reference path="dataStore.d.ts" />
+/// <reference path="dataService.d.ts" />
 
 declare namespace NSApp {
     class Truck {
         private truckId: string;
-        private db: DataStore;
+        private db: IDataService;
 
-        constructor(truckId: string, db: DataStore);
+        constructor(truckId: string, db: IDataService);
 
         createOrder(order: IOrder): void;
 

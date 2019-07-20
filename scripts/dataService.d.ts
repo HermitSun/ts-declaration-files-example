@@ -1,11 +1,5 @@
-/// <reference path="dataService.d.ts" />
-
 declare namespace NSApp {
-    class DataStore implements IDataService {
-        private data: IData;
-
-        constructor();
-
+    interface IDataService {
         add(key: string, val: any): void;
 
         get(key: string): any;
@@ -13,5 +7,9 @@ declare namespace NSApp {
         getAll(): IData;
 
         remove(key: string): void;
+    }
+
+    interface IData {
+        [email: string]: any;
     }
 }
