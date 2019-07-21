@@ -1,15 +1,13 @@
+/// <reference path="thenable.d.ts" />
+
 declare namespace NSApp {
-    interface IDataService {
-        add(key: string, val: any): void;
+    interface IDataService<T> {
+        add(key: string, val: T): Thenable<T>;
 
-        get(key: string): any;
+        get(key: string, cb?: (response: any) => void): Thenable<T>;
 
-        getAll(): IData;
+        getAll(cb?: (response: any) => void): Thenable<T>;
 
-        remove(key: string): void;
-    }
-
-    interface IData {
-        [email: string]: any;
+        remove(key: string): Thenable<T>;
     }
 }

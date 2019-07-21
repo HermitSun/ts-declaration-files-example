@@ -1,17 +1,17 @@
 /// <reference path="dataService.d.ts" />
 
 declare namespace NSApp {
-    class RemoteDataStore implements IDataService {
+    class RemoteDataStore<T> implements IDataService<T> {
         private serverUrl: string;
 
         constructor(url: string);
 
-        add(key: string, val: any): void;
+        add(key: string, val: T): Thenable<T>;
 
-        get(key: string): any;
+        get(key: string, cb?: (response: any) => void): Thenable<T>;
 
-        getAll(): IData;
+        getAll(cb?: (response: any) => void): Thenable<T>;
 
-        remove(key: string): void;
+        remove(key: string): Thenable<T>;
     }
 }

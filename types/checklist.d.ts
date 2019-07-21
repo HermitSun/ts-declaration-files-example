@@ -7,8 +7,9 @@ declare namespace NSApp {
 
         constructor(selector: string);
 
-        addClickHandler(fn: (customId: string) => void): void;
+        addClickHandler(fn: (customId: string) => Thenable<IData>): void;
 
+        /** @deprecated */
         addDoubleClickHandler(): void;
 
         addRow(coffeeOrder: IOrder): void;

@@ -22,9 +22,11 @@
         data[item.name] = item.value;
       });
       console.log(data);
-      fn(data); // replaceable methods will be placed here
-      this.reset();
-      this.elements[0].focus();
+      fn(data) // replaceable methods will be placed here
+        .then(function () {
+          this.reset();
+          this.elements[0].focus();
+        }.bind(this));
     });
   };
 

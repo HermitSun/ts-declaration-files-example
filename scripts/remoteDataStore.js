@@ -11,7 +11,7 @@
   }
 
   RemoteDataStore.prototype.add = function (key, val) {
-    $.post(
+    return $.post(
       this.serverUrl,
       val,
       function (serverResponse) {
@@ -20,27 +20,32 @@
   };
 
   RemoteDataStore.prototype.get = function (key, cb) {
-    $.get(
+    return $.get(
       this.serverUrl + '/' + key,
       function (serverResponse) {
-        console.log(serverResponse);
-        cb(serverResponse);
+        if (cb) {
+          console.log(serverResponse);
+          cb(serverResponse);
+        }
       });
   };
 
   RemoteDataStore.prototype.getAll = function (cb) {
-    $.get(
+    return $.get(
       this.serverUrl,
       function (serverResponse) {
-        console.log(serverResponse);
-        cb(serverResponse);
+        if (cb) {
+          console.log(serverResponse);
+          cb(serverResponse);
+        }
       });
   };
 
   RemoteDataStore.prototype.remove = function (key) {
-    $.ajax({
-      type: 'DELETE'
-    });
+    return $.ajax(
+      this.serverUrl + '/' + key, {
+        type: 'DELETE'
+      });
   };
 
   App.RemoteDataStore = RemoteDataStore;

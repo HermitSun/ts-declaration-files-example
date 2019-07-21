@@ -6,10 +6,11 @@ declare namespace NSApp {
 
         constructor(selector: string);
 
-        addSubmitHandler(fn: (order: IOrder) => void);
+        addSubmitHandler(fn: (order: IOrder) => Thenable<IData>);
 
         addInputHandler(fn: (email: string) => boolean): void;
 
+        /** @deprecated */
         addRangeHandler(validator: (coffee: string, strength: number) => boolean): void;
     }
 }
