@@ -14,7 +14,7 @@ const FormHandler = App.FormHandler;
 const Validation = App.Validation;
 const CheckList = App.CheckList;
 
-function init() {
+function init(dataStore: IDataService<IData>) {
     const truck = new Truck("ncc-1701", dataStore);
     const checkList = new CheckList(CHECKLIST_SELECTOR);
     checkList.addClickHandler(truck.deliverOrder.bind(truck));
@@ -59,5 +59,5 @@ fetch("http://coffeerun-v2-rest-api.herokuapp.com/api/coffeeorders")
         dataStore = new DataStore();
     })
     .then(() => {
-        init();
+        init(dataStore);
     });

@@ -7,12 +7,12 @@
 /// <reference path="dataStore.d.ts" />
 /// <reference path="truck.d.ts" />
 
-interface App {
-    RemoteDataStore: new(url: string) => NSApp.RemoteDataStore;
-    DataStore: new() => NSApp.DataStore;
-    Truck: new(truckId: string, db: NSApp.IDataService) => NSApp.Truck; // satisfied LSP & DIP
-    FormHandler: new(selector: string) => NSApp.FormHandler;
-    CheckList: new(selector: string) => NSApp.CheckList;
+interface App<T = IData> {
+    RemoteDataStore: new(url: string) => NSApp.RemoteDataStore<T>;
+    DataStore: new() => NSApp.DataStore<T>;
+    Truck: new(truckId: string, db: NSApp.IDataService<T>) => NSApp.Truck<T>; // satisfied LSP & DIP
+    FormHandler: new(selector: string) => NSApp.FormHandler<T>;
+    CheckList: new(selector: string) => NSApp.CheckList<T>;
     Validation: NSApp.Validation;
 }
 

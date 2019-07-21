@@ -3,16 +3,16 @@
 /// <reference path="order.d.ts" />
 
 declare namespace NSApp {
-    class Truck {
+    class Truck<T> {
         private truckId: string;
-        private db: IDataService<IData>;
+        private db: IDataService<T>;
 
-        constructor(truckId: string, db: IDataService<IData>);
+        constructor(truckId: string, db: IDataService<T>);
 
-        createOrder(order: IOrder): Thenable<IData>;
+        createOrder(order: IOrder): Thenable<T>;
 
-        deliverOrder(customId: string): Thenable<IData>;
+        deliverOrder(customId: string): Thenable<T>;
 
-        printOrders(printFn?: (order: IOrder) => void): Thenable<IData>;
+        printOrders(printFn?: (order: IOrder) => void): Thenable<T>;
     }
 }

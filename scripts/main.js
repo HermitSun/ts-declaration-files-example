@@ -9,7 +9,7 @@ var Truck = App.Truck;
 var FormHandler = App.FormHandler;
 var Validation = App.Validation;
 var CheckList = App.CheckList;
-function init() {
+function init(dataStore) {
     var truck = new Truck("ncc-1701", dataStore);
     var checkList = new CheckList(CHECKLIST_SELECTOR);
     checkList.addClickHandler(truck.deliverOrder.bind(truck));
@@ -51,5 +51,5 @@ fetch("http://coffeerun-v2-rest-api.herokuapp.com/api/coffeeorders")
     dataStore = new DataStore();
 })
     .then(function () {
-    init();
+    init(dataStore);
 });

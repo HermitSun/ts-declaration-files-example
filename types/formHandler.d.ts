@@ -1,12 +1,12 @@
 /// <reference types="jquery" />
 
 declare namespace NSApp {
-    class FormHandler {
+    class FormHandler<T> {
         private $formElement: JQuery;
 
         constructor(selector: string);
 
-        addSubmitHandler(fn: (order: IOrder) => Thenable<IData>);
+        addSubmitHandler(fn: (order: IOrder) => Thenable<T>);
 
         addInputHandler(fn: (email: string) => boolean): void;
 

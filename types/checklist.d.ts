@@ -2,12 +2,12 @@
 /// <reference path="truck.d.ts" />
 
 declare namespace NSApp {
-    class CheckList {
+    class CheckList<T> {
         private $element: JQuery;
 
         constructor(selector: string);
 
-        addClickHandler(fn: (customId: string) => Thenable<IData>): void;
+        addClickHandler(fn: (customId: string) => Thenable<T>): void;
 
         /** @deprecated */
         addDoubleClickHandler(): void;
